@@ -38,6 +38,6 @@ export async function ipfsAddObject(obj) {
 }
 
 // mainnet: adChain, rinkeby: sunset, 420: test, 9001: test
-export const ipfsABIsHash = 'QmQSxEDhY9nJUMjDXA1xVek5fcBzgLpwcjgbQwtjrEJrfi'
+export const ipfsABIsHash = 'QmZcmrWj8HQDFUsotQu19sgjZp5yfTzoDBiY6gT3YN7NYt'
 
 export const ipfsTokensHash = 'QmRH8e8ssnj1CWVepGvAdwaADKNkEpgDU5bffTbeS6JuG9'
