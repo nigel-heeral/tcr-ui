@@ -1,12 +1,12 @@
 import { select, call, put } from 'redux-saga/effects'
 import {
-  // show,
-  // success,
-  // error,
-  // warning,
+  show,
+  success,
+  error,
+  warning,
   info,
-  // hide,
-  // removeAll,
+  hide,
+  removeAll,
 } from 'react-notification-system-redux'
 
 import { getNotificationTitleAndMessage } from './utils'
@@ -15,6 +15,10 @@ import { findListing } from 'modules/listings/utils'
 import { selectAllListings } from 'modules/listings/selectors'
 import { selectTCR } from 'modules/home/selectors'
 import { handleMultihash } from '../../listings/utils'
+
+export function* rootNotificationsSaga() {
+  // yield call(testNotifications, put)
+}
 
 export function* notificationsSaga(log) {
   try {

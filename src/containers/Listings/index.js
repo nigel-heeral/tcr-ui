@@ -13,6 +13,15 @@ import FirstPageIcon from '@material-ui/icons/FirstPage'
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft'
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
 import LastPageIcon from '@material-ui/icons/LastPage'
+import {
+  show,
+  success,
+  error,
+  warning,
+  info,
+  hide,
+  removeAll,
+} from 'react-notification-system-redux'
 
 import ListingCard from './ListingCard'
 import { colors } from '../../global-styles'
@@ -172,6 +181,9 @@ class SimpleTabs extends Component {
     page: 0,
     rowsPerPage: 5,
   }
+  componentDidMount() {
+    this.props.onDispatchNotification()
+  }
 
   handleChange = (event, value) => {
     this.setState({ value })
@@ -330,9 +342,23 @@ class SimpleTabs extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
+  const noti = {
+    uid: '0x',
+    title: 'titleaasdad',
+    position: 'tl',
+    autoDismiss: 5,
+    action: {
+      label: 'cb',
+      callback: () => {
+        console.log('click')
+        alert('click')
+      },
+    },
+  }
   return {
     onOpenSidePanel: (selectedOne, openThis) =>
       dispatch(actions.openSidePanel(selectedOne, openThis)),
+    onDispatchNotification: () => dispatch(success(noti)),
   }
 }
 

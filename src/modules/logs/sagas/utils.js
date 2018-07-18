@@ -52,6 +52,11 @@ export function getNotificationTitleAndMessage(eventName, logData, tcr, listing)
       title = `Application added to the registry`
       message = `Token: ${listing.tokenData.name} (${listing.tokenData.symbol})`
       break
+    case '_ApplicationRemoved':
+      title = `Application removed from registry`
+      message = `Votes for application ${listing.votesFor}, Votes against application :${
+        listing.votesAgainst
+      }`
     case '_ChallengeFailed':
       title = `Listing: ${listing.tokenData.name} remains whitelisted after challenge`
       message = `votesFor: ${listing.votesFor}, votesAgainst: ${

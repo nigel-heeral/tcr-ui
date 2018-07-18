@@ -1,4 +1,4 @@
-import { select, takeLatest, fork, call } from 'redux-saga/effects'
+import { put, select, takeLatest, fork, call } from 'redux-saga/effects'
 import { delay } from 'redux-saga'
 
 import * as epTypes from 'modules/home/types'
@@ -6,10 +6,12 @@ import * as epTypes from 'modules/home/types'
 import { selectRegistry, selectVoting } from 'modules/home/selectors'
 
 import rootPollLogsSaga, { initPolling, decodeLogsSaga } from './poll'
+import { rootNotificationsSaga } from './notifications'
 
 export default function* rootLogsSaga() {
   yield fork(rootPollLogsSaga)
   yield takeLatest(epTypes.SET_CONTRACTS, getFreshLogs)
+  yield takeLatest(epTypes.SET_CONTRACTS, rootNotificationsSaga)
 }
 
 function* getFreshLogs() {
